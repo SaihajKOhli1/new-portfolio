@@ -6,8 +6,34 @@ import { GitHubIcon, LinkedInIcon } from "@/components/icons";
 
 const SOCIAL_LINKS = [
   { label: "GitHub", href: "https://github.com/SaihajKOhli1", Icon: GitHubIcon },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/saihaj-kohli", Icon: LinkedInIcon },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/saihaj-kohli-a2b927301/", Icon: LinkedInIcon },
 ];
+
+const CONTACT_EMAIL = "sskohli@uwaterloo.ca";
+const MAILTO_HREF = `mailto:${CONTACT_EMAIL}`;
+const GMAIL_COMPOSE_HREF = `https://mail.google.com/mail/?view=cm&fs=1&to=${CONTACT_EMAIL}`;
+
+function handleContactClick(event: React.MouseEvent<HTMLAnchorElement>) {
+  // Devices with no default mail app silently do nothing on a plain mailto
+  // click, so fall back to Gmail's web compose if the OS never takes focus
+  // away from the tab (a sign a mail app actually opened).
+  event.preventDefault();
+
+  let mailAppOpened = false;
+  const markOpened = () => {
+    mailAppOpened = true;
+  };
+
+  window.addEventListener("blur", markOpened, { once: true });
+  window.location.href = MAILTO_HREF;
+
+  window.setTimeout(() => {
+    window.removeEventListener("blur", markOpened);
+    if (!mailAppOpened) {
+      window.open(GMAIL_COMPOSE_HREF, "_blank", "noopener,noreferrer");
+    }
+  }, 600);
+}
 
 const FADE_UP: Variants = {
   hidden: { opacity: 0, y: 10 },
@@ -38,7 +64,8 @@ export function GetInTouchCard() {
 
         <motion.a
           variants={FADE_UP}
-          href="mailto:sskohli@uwaterloo.ca"
+          href={MAILTO_HREF}
+          onClick={handleContactClick}
           className="mt-2 inline-flex items-center justify-center rounded-full border border-[#3B82F6]/40 bg-[#3B82F6]/10 px-8 py-3 text-3xl text-[#3B82F6] shadow-sm transition-transform hover:scale-105 hover:bg-[#3B82F6]/15"
           style={{ fontFamily: "var(--font-cursive)" }}
         >

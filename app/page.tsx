@@ -14,9 +14,9 @@ export default function Home() {
     <div>
       <AnimatedNavFramer />
       <HelloHero />
-      <section className="relative flex h-screen items-center justify-center overflow-hidden">
+      <section className="relative flex min-h-screen items-center justify-center overflow-hidden py-24">
         <GradientBackground gradientSize="125% 70%" />
-        <div className="relative z-10 flex flex-col items-center gap-40">
+        <div className="relative z-10 flex flex-col items-center gap-10 sm:gap-16 md:gap-24 lg:gap-32">
           <GlitchText
             text="Saihaj Kohli"
             className="min-h-0 p-0"
@@ -33,10 +33,10 @@ export default function Home() {
           />
         </div>
       </section>
-      <section id="about" className="relative flex h-screen items-center justify-center overflow-hidden">
+      <section id="about" className="relative flex min-h-screen items-center justify-center overflow-hidden py-24">
         <GradientBackground />
         <div className="relative z-10 flex w-[92vw] max-w-4xl flex-col items-center gap-8 md:flex-row md:items-start md:justify-center">
-          <div className="relative flex max-h-[85vh] w-full max-w-xl flex-col overflow-hidden rounded-[2.5rem] border border-white/40 bg-white/60 shadow-[0_8px_40px_rgba(0,0,0,0.18)] backdrop-blur-2xl">
+          <div className="relative flex max-h-[75vh] w-full max-w-xl flex-col overflow-hidden rounded-[2.5rem] border border-white/40 bg-white/60 shadow-[0_8px_40px_rgba(0,0,0,0.18)] backdrop-blur-2xl">
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/60 via-white/10 to-transparent" />
             <div className="relative overflow-y-auto">
               <BioCard />
@@ -45,7 +45,7 @@ export default function Home() {
           <PolaroidPhotos />
         </div>
       </section>
-      <section id="contact" className="relative flex h-screen items-center justify-center overflow-hidden">
+      <section id="contact" className="relative flex min-h-screen items-center justify-center overflow-hidden py-24">
         <GradientBackground />
         <div className="relative z-10 flex w-[92vw] max-w-4xl flex-col items-center gap-8 md:flex-row md:items-start md:justify-center">
           <GetInTouchCard />
