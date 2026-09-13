@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 import { GitHubIcon } from "@/components/icons";
@@ -159,6 +159,15 @@ function PhotoCaption({ photo }: { photo: Photo }) {
 export function PolaroidPhotos() {
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const selected = PHOTOS.find((photo) => photo.id === selectedId) ?? null;
+
+  useEffect(() => {
+    if (!selected) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [selected]);
 
   return (
     <>
