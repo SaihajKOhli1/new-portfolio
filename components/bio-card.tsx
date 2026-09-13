@@ -90,7 +90,7 @@ const PROJECTS: ProjectItem[] = [
         href: "https://github.com/SaihajKOhli1/HydroCool-Connect",
       },
       {
-        label: "SITE",
+        label: "ARTICLE",
         href: "https://uwaterloo.ca/news/breaking-barriers-local-climate-action-open-source-data",
       },
     ],
